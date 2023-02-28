@@ -4,13 +4,28 @@ public class Ravenclaw extends Hogwarts{
     private int ingenious;
     private int creation;
 
-    public Ravenclaw(String firstName, String lastName, int powerOfMagic, int blink, int intellect, int wisdom, int ingenious, int creation) {
-        super(firstName, lastName, powerOfMagic, blink);
+    public Ravenclaw(String name, int powerOfMagic, int blink, int intellect, int wisdom, int ingenious, int creation) {
+        super(name, powerOfMagic, blink);
         this.intellect = intellect;
         this.wisdom = wisdom;
         this.ingenious = ingenious;
         this.creation = creation;
     }
+
+    public int getTotalPointsRavenclaw(){
+        return getPowerOfMagic() + getBlink() + getIntellect() + getWisdom() + getIngenious() + getCreation();
+    }
+
+    public static void getBestStudent(Ravenclaw first, Ravenclaw second ){
+        if (first.getTotalPointsRavenclaw() > second.getTotalPointsRavenclaw()){
+            System.out.println(first.getName() +" " + first.getTotalPointsRavenclaw() + " лучший Когтевранец, чем " +
+                    second.getName() + " " + second.getTotalPointsRavenclaw());
+        } else{
+            System.out.println(second.getName() + " " + second.getTotalPointsRavenclaw() +" лучший Когтевранец, чем " +
+                    first.getName() + " " + first.getTotalPointsRavenclaw());
+        }
+    }
+
 
     public int getIntellect() {
         return intellect;

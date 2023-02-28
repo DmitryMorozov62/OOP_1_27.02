@@ -5,15 +5,31 @@ public class Slytherin extends Hogwarts{
     private int resourcefulness;
     private int lustForPower;
 
-    public Slytherin(String firstName, String lastName, int powerOfMagic, int blink, int cunning, int resoluteness,
+    public Slytherin(String name, int powerOfMagic, int blink, int cunning, int resoluteness,
                      int ambition, int resourcefulness, int lustForPower) {
-        super(firstName, lastName, powerOfMagic, blink);
+        super(name, powerOfMagic, blink);
         this.cunning = cunning;
         this.resoluteness = resoluteness;
         this.ambition = ambition;
         this.resourcefulness = resourcefulness;
         this.lustForPower = lustForPower;
     }
+
+    public int getTotalPointsSlytherin() {
+        return getPowerOfMagic() + getBlink() + getCunning() + getResoluteness() + getAmbition() + getResourcefulness()
+                + getLustForPower();
+    }
+
+    public static void getBestStudent(Slytherin first, Slytherin second ){
+        if (first.getTotalPointsSlytherin() > second.getTotalPointsSlytherin()){
+            System.out.println(first.getName() +" " + first.getTotalPointsSlytherin() + " лучший Слизеринец, чем " +
+                    second.getName() + " " + second.getTotalPointsSlytherin());
+        } else{
+            System.out.println(second.getName() + " " + second.getTotalPointsSlytherin() +" лучший Слизеринец, чем " +
+                    first.getName() + " " + first.getTotalPointsSlytherin());
+        }
+    }
+
 
     public int getCunning() {
         return cunning;
